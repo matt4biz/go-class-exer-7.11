@@ -1,7 +1,9 @@
 [![Run on Repl.it](https://repl.it/badge/github/matt4biz/go-class-exer-7.11)](https://repl.it/github/matt4biz/go-class-exer-7.11)
 
 # Go class: Exercise 7.11 from GoPL
-This exercise as two parts:
+These programs make up the answer to exercise 7.11 in [The Go Programming Language](http://www.gopl.io).
+
+This exercise has two parts:
 
 - the actual exercise, building out the simple web database
 - the exercise implied by "warning: this change introduces concurrent variable updates"
@@ -28,6 +30,8 @@ $ kill %1
 ```
 
 Note that in bash we must escape the ampersand `\&` so the shell doesn't think we're asking to run a background process.
+
+**NOTE**: for now, the "runner" script isn't working in repl.it, likely an issue with the server URL.
 
 ## Part 2
 The solution from part 1 suffers a problem: its database methods (read, update, etc.) all have a race condition, since all HTTP handlers in Go run on their own goroutines and may run in parallel.
@@ -194,3 +198,4 @@ We can fix this by removing the comment marks `//` from the lines that lock & un
 . . .
 ```
 
+**NOTE**: for some reason, the test does work on repl.it, even though it's also opening a socket on localhost. Hmmm. (But it does take a while.)
