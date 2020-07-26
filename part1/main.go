@@ -109,5 +109,5 @@ func main() {
 	http.HandleFunc("/delete", db.drop)
 	http.HandleFunc("/read", db.fetch)
 
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe("localhost:8080", nil))
 }
