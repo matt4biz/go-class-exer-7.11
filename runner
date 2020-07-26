@@ -1,0 +1,10 @@
+#! /bin/bash
+set -o xtrace
+
+go run ./part1 &
+sleep 1
+
+curl http://localhost:8080/list
+curl http://localhost:8080/read?item=socks
+curl http://localhost:8080/update?item=socks\&price=6
+kill 0
